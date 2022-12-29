@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상수</title>
+    <!-- 변하지 않는 값 -->
+    <script>
+        const pi = 3.14; 
+        //자바스크립트는 객체기반의 언어
+        //객체 함수 => 콘솔이라는 객체에 저장된 함수
+        console.log('pi=' + pi);
+        const r = 10; //r 상수를 선언,초기화
+        window.alert(2*pi*r) //원의 둘레
+        window.alert(pi*r*r) //원의 너비
+        /* 오류남(문법오류)
+         r=20;
+        window.alert(pi*r*r) //원의 너비 */
+        /* 
+        문법오류
+        const r2;
+        r2=30;
+        */
+    </script>
+</head>
+<body>
+    <p>const 는 값 제할당 불가</p>
+    <p>const 는 같은 식별자 선언불가</p>
+    <p>const 선언후 값 할당 불가</p>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="galleryWrap">
+      <h1>이미지갤러리</h1>
+      <p>
+        <!-- javascript:void(0) => a태그가 가지고 있는 속성을 막음(누르면 위로올라가는 속성) -->
+        <a href="javascript:void(0)" onclick="prevGallery()">◀</a>
+        <img src="img/img1.jpg" alt="" width="300" height="200" id="gallery" />
+        <a href="javascript:void(0)" onclick="nextGallery()">▶</a>
+      </p>
+    </div>
+
+    <script>
+      //밖에 있는 변수는 전역 변수
+      let num = 0;
+      function nextGallery() {
+        //함수 안에 있는 변수는 지역변수
+        /*  if(num<7){
+            num++;
+        }else{
+            num =1;
+        } */
+        num++;
+        if (num >= 7) {
+          num = 1;
+        }
+        document.getElementById("gallery").src = "img/img" + num + ".jpg";
+        e.preventDefalt();
+        
+      }
+      nextGallery();
+
+      function prevGallery() {
+        num--;
+        console.log(num);
+        if (num <= 0) {
+          num = 7;
+        }
+        document.getElementById("gallery").src = "img/img" + num + ".jpg";
+        
+      }
+      prevGallery();
+      //console.log((document.getElementById("gallery").src = "img/img" + num + ".jpg"));
+    </script>
+  </body>
+</html>

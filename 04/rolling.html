@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      /* img 너비 72px  여백 8px => 80px  */
+      #frame {
+        width: 232px;
+        height: 88px;
+        position: relative;
+        margin: 10px auto;
+        border: 1px solid #bb62bb;
+        overflow: hidden;
+      }
+      #banner {
+        width: 480px; /* 6(li)*8(너비) = 48 */
+        /* border: 1px solid red; */
+        height: 54px;
+        display: flex;
+      }
+      #banner li {
+        flex: 0 0 78px;
+        margin-right: 1px;
+        list-style: none;
+        width: 80px;
+        height: 100%;
+        background-color: gray;
+        font-size: 2em;
+        text-align: center;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+    <script>
+      $(function () {
+        //변수(변해야 하는 애들)
+        let list = $("#banner");
+        const show_num = 3;
+        const total = list.find("li").length; //length 갯수,길이를 받아옴 => 가변적으로 바뀌기 때문에 바뀌어도 수정이 필요없음
+        //console.log(total);
+        const li_width = list.find("li").eq(0).width();
+        //console.log(li_width);
+        const copyObj = list.find("li").clone().css("background", "red"); //clone()복제
+        const ctrl = $(".ctrl");
+
+        list.append(copyObj); //append 추가
+
+        //슬라이드기능 구현시 번호를 저장할 변수를 먼저 만들어야함
+        let num = 0;
+
+        $(".next").click(function () {
+          if (num == total) {
+            num = 0;
+            list.css("margin-left", 0);
+          }
+
+          num++; //0
+          console.log(num);
+          //animate => margin , position 으로 사용됌 (다른기능은 복잡)
+          list.stop().animate({ "margin-left": -li_width * num }, 500); //num =1
+          timer();
+
+          return false;
+        });
+
+        $(".prev").click(function () {
+          if (num == 0) {
+            num = total; //3
+            list.css("margin-left", -li_width * num);
+          }
+
+          num--;
+          console.log(num, "num--");
+
+          list.stop().animate({ "margin-left": -li_width * num }, 500);
+          timer();
+
+          return false;
+        });
+
+        /* autoPlay */
+        const timer = setInterval(autoPlay, 2000);
+        //clearInterval(timer);
+
+        //setInterval(autoPlay, 2000);
+        
+        ctrl.click(function () {
+          if (ctrl.text() === "stop") {
+            ctrl.text("play");
+            clearInterval(timer)            
+            //text() => 값을 얻어오거나 바꾸는
+            console.log(ctrl.text() === "stop");
+          }else{
+            ctrl.text("stop");
+            setInterval(autoPlay, 2000)
+          }
+        });
+
+        //function 함수는 자바스크립트 맨위쪽부터 적용가능
+        function autoPlay() {
+          if (num == total) {
+            num = 0;
+            list.css("margin-left", 0);
+          }
+          num++;
+          console.log(num);
+          list.stop().animate({ "margin-left": -li_width * num }, 500);
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Rolling</h1>
+    <div id="frame">
+      <ul id="banner">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+      </ul>
+    </div>
+    <a href="#" class="prev">prev</a>
+    <a href="#" class="next">next</a>
+    <a href="#" class="ctrl">stop</a>
+  </body>
+</html>

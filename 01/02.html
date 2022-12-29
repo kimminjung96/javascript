@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수와상수</title>
+    <script>
+        //변수는 변하는 값을 저장   => var , let
+        //상수는 안변하는 값을 저장 => const
+        var 숫자1=10; //좌항에 우항을 할당(저장)하다.
+        var 숫자2=20; //var 변수를 초기화한다.
+        const 합=숫자1+숫자2
+        document.write(합)
+
+        숫자1=30; //재할당
+        document.write('<br>')
+        document.write(숫자1+숫자2)
+        let 숫자3=40;
+        document.write('<br>')
+        document.write(숫자1+숫자2+숫자3)
+        숫자3=20
+        document.write('<br>')
+        console.log(숫자3); //컨트롤 쉬프트 I
+        document.write('숫자1'+숫자2+숫자3)
+        //문자가 있을 경우 + 로 연결하면 글자가 연결됌 (자료형이 자동으로 바뀜)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
