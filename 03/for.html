@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>반복문</h1>
+    <h2>for</h2>
+    <ul class="menu1">
+      <li>list item1</li>
+      <li>list item2</li>
+      <li>list item3</li>
+      <li>list item4</li>
+    </ul>
+    <hr />
+
+    <h2>foreach</h2>
+    <ul class="menu2">
+      <li>list item1</li>
+      <li>list item2</li>
+      <li>list item3</li>
+      <li>list item4</li>
+    </ul>
+    <hr />
+
+    <h2>for of (in)</h2>
+    <ul class="menu3">
+      <li>list item1</li>
+      <li>list item2</li>
+      <li>list item3</li>
+      <li>list item4</li>
+    </ul>
+    <hr />
+
+    <h2>do / while</h2>
+    <ul class="menu4">
+      <li>list item1</li>
+      <li>list item2</li>
+      <li>list item3</li>
+      <li>list item4</li>
+    </ul>
+    <hr />
+
+    <script>
+      const menu1 = document.querySelectorAll(".menu1 li");
+      //console.log(menu1);
+      //표현식과 실행문
+      for (i = 0; i < menu1.length; i++) {
+        menu1[i].style.color = "red";
+        menu1[i].addEventListener("mouseover", function () {
+          this.style.color = "blue";
+        });
+        menu1[i].addEventListener("mouseout", function () {
+          this.style.color = "red";
+        });
+      }
+
+      const menu2 = document.querySelectorAll(".menu2 li");
+      //배열요소이여햐 하고 //함수가 들어감(함수 식: 이름이 없는 함수 => 다른함수에 값을 전달할 수 있음)
+      //forEach => 배열요소들을 반복실행 시키는 함수!
+      menu2.forEach(function (tomato, a, b) {
+        //console.log(tomato); // 배열 요소를 한번씩 실행
+        //console.log(a); //index 번호
+        //console.log(b); //배열
+        tomato.style.color = "blue";
+        menu2[a].addEventListener("mouseover", function () {
+          menu1[a].style.backgroundColor = "yellow";
+          this.style.backgroundColor = "yellow";
+        });
+        menu2[a].addEventListener("mouseout", function () {
+          menu1[a].style.backgroundColor = "white";
+          this.style.backgroundColor = "white";
+        });
+      });
+
+      const menu3 = document.querySelectorAll(".menu3 li");
+      for (let k of menu3) {
+        //for in => index번호반환
+        //for of => 요소을 반환
+        //console.log(k, menu3);
+        k.style.color = "yellow";
+
+        k.addEventListener("mouseover", function () {
+          this.style.color = "red";
+        });
+        k.addEventListener("mouseout", function () {
+          this.style.color = "yellow";
+        });
+      }
+
+      const menu4 = document.querySelectorAll(".menu4 li");
+      let y = 0;
+      do {
+        menu4[y].style.color = "pink";
+        menu4[y].addEventListener("mouseover", function () {
+          this.style.backgroundColor = "blue";
+        });
+        menu4[y].addEventListener("mouseout", function () {
+          this.style.backgroundColor = "white";
+        });
+        y++;
+      } while (y < menu4.length);
+    </script>
+  </body>
+</html>
