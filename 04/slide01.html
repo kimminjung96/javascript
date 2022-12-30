@@ -19,6 +19,34 @@
         #buttonList{display: flex; position: absolute; top: 300px; left: 50%;}
         #buttonList li{width: 35px; height: 17px; margin: 0 5px; background: url(./img/btn.png) 0 -16px no-repeat;}
         #buttonList li.on{background-position: 0 1px;}
+
+        .controls {
+            position: absolute;
+            top: 200px;
+            left: 50px;
+            border: 1px solid #333;
+            display: flex;
+        }
+
+        .controls li {
+            width: 16px;
+            height: 22px;
+            margin-left: 10px;
+        }
+
+        .controls li a {
+            display: block;
+            width: 16px;
+            height: 22px;
+        }
+
+        .controls li.prev a {
+            background: red;
+        }
+
+        .controls li.next a {
+            background:red ;
+        }
     </style>
     <script src='https://code.jquery.com/jquery-1.12.1.min.js'></script>
     <script src="slide01.js"></script>
@@ -36,6 +64,10 @@
             <li class="on"></li>
             <li></li>
             <li></li>
+        </ul>
+        <ul class="controls">
+            <li class="prev"><a href="#"></a></li>
+            <li class="next"><a href="#"></a></li>
         </ul>
     </div>
 </body>
