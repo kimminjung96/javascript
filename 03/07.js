@@ -7,7 +7,7 @@ var memNum = prompt("입장객은 몇 명인가요?");
 var colNum = prompt("한 줄에 몇 명씩 앉습니까?"); //td
 
 
-if (menubar % colNum === 0) {
+if (memNum % colNum === 0) {
   //rowNum => tr
   rowNum = parseInt(memNum / colNum); 
   //parseInt() => 숫자만 추출 , 소숫점 버림(정수만 추출)
