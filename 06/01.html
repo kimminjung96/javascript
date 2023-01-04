@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src='https://code.jquery.com/jquery-1.12.1.min.js'></script>
-</head>
-<body>
+    <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+    <!--     
+    <script>
+        $(function(){
+            $("p").css("color","green")
+            $("p.blue").css({color:"blue",'font-weight':"bold"})
+        })
+    </script>
+ -->
+    <script>
+        //$(function(){})
+        document.addEventListener("DOMContentLoaded",()=>{
+            //querySelector => css 선택자로 선택
+            // = $("p")   //.css("color","red") =>제이쿼리의 함수 인자를 전달하는것
+            document.querySelector("p").style.color="red" //style객체안에 color속성을 "red"로 바꾼다.
+            document.querySelector("p.blue").style.color="pink"
+        })
+    </script>
+  </head>
+  <body>
     <p>초록색</p>
     <p class="blue">파란색</p>
-</body>
+  </body>
 </html>
