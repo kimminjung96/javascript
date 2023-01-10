@@ -9,12 +9,20 @@ gnbLiA.click(function () {
      $(".sub").removeClass("on");
      $(this).next().addClass("on");
     */
-   
+
  /* .sub a 높이를 받아와서 하기 */
-  $(".sub").css("height", "0px");
+  /* $(".sub").css("height", "0px");
   $(this)
     .next()
-    .css("height", aH * 4 + "px");
+    .css("height", aH * 4 + "px"); */
+    //클릭된 요소를 변수 tg에 저장
+  let tg=$(this);
+  //tg 다음요소의 하위에서 a 태그의 길이를 변수 subA에 저장
+  let subA=tg.next().find("a").length
+  //.sub 의 높이 0
+  $('.sub').css("height", "0px");
+  //tg 다음요소의 높이를 변수 aH*subA 로 변경
+  tg.next().css("height", aH * subA + "px");
 
     
 
