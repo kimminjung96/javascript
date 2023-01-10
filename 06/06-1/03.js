@@ -22,7 +22,7 @@ $(function(){
     if($(this).hasClass("red")){  //클래스가 있는지 검사
       $(this).removeClass("bg-orange")
     }
-    $("h1").toggleClass("bg-orange"); //클래스토글
+    $("h1").toggleClass("bg-orange");
   })
   $("h1").addClass("red");//클래스 추가
   $("h1").removeClass("red");//클래스삭제
