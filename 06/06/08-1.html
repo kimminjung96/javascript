@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        position: fixed;
+      }
+      section {
+        font-size: 10em;
+        height: 400vh;
+        width: 100%;
+      }
+      .progress {
+        position: fixed;
+        left: 50%;
+        top: 10px;
+        height: 90%;
+        width: 100px;
+        margin-left: -35%;
+        border: 1px solid #222;
+        text-align: center;
+      }
+      .progress .bar {
+        position: absolute;
+        z-index: -1;
+        display: block;
+        height: 0%;
+        width: 100%;
+        background-color: #111;
+      }
+      .progress .txt {
+        color: red;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <section>
+      <div class="progress">
+        <span class="bar"></span>
+        <p class="txt">0%</p>
+        가<br />나<br />다<br />라<br />마<br />바<br />사<br />아<br />자<br />차<br />카<br />타<br />파<br />하
+      </div>
+    </section>
+
+    <script>
+      const section = document.querySelector("section");
+      let progressBar = document.querySelector(".bar");
+      let text = document.querySelector(".txt");
+      const windowHeight = window.innerHeight;
+      let scrollTop;
+      //문서의 높이
+      const scrollHeight = section.clientHeight;
+
+      window.addEventListener("scroll", function () {
+        scrollTop = window.scrollY; //스크롤버튼이 top에서 움직인 값
+        let scrollRealHeight = scrollHeight - windowHeight;
+        let scrollPercent = (scrollTop / scrollRealHeight) * 100;
+        //Math.floor() =>자리수 버림
+        let scrollAmount = Math.floor(scrollPercent);
+        console.log(scrollAmount);
+
+        text.textContent = scrollAmount + "%";
+        progressBar.style.height = scrollAmount + "%";
+      });
+    </script>
+  </body>
+</html>

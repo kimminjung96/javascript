@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      section {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        height: 100vh;
+      }
+      .box {
+        position: fixed;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <section>
+      <h2>section1</h2>
+    </section>
+    <section>
+      <h2>section1</h2>
+    </section>
+    <section>
+      <h2>section1</h2>
+    </section>
+    <section>
+      <h2>section1</h2>
+    </section>
+    <section>
+      <h2>section1</h2>
+    </section>
+    <section>
+      <h2>section1</h2>
+    </section>
+    <section>
+      <h2>section1</h2>
+    </section>
+    <section>
+      <h2>section1</h2>
+    </section>
+    <section>
+      <h2>section1</h2>
+    </section>
+    <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+    <script>
+      const sections = $("section");
+      const h2 = $("h2");
+      let scrollTop;
+
+      h2.each(function (idx, value) {
+        console.log(idx, value);
+        $(value).text("section" + (idx + 1));
+      });
+
+      $(window).scroll(function () {
+        scrollTop = $(this).scrollTop();
+        $(".box").html("<p>" + scrollTop +"</p>");
+      });
+    </script>
+
+    <!-- 
+    <script>
+      let h2 = document.querySelectorAll("h2");
+      //let section = document.querySelectorAll("section");
+      console.log(h2);
+      for (i = 0; i < h2.length; i++) {
+        h2[i].textContent = "section" + [i + 1];
+      }
+
+      let scrollTop;
+      window.addEventListener("scroll", function () {
+        scrollTop = window.pageYOffset; //익스호환
+        scrollTop = window.scrollY; //익스호환 X //대신 여러 디바이스에서 적용가능
+        scrollTop = document.documentElement.scrollTop; //특정요소거리 부터
+        scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop; //호환성고려
+
+        document.querySelector(".box").innerHTML = "<p>" + scrollTop;
+      });
+    </script>
+     -->
+  </body>
+</html>
