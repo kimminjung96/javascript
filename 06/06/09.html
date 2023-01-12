@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      section {
+        overflow: hidden;
+      }
+      article {
+        position: relative;
+        width: 100%;
+        height: 900px;
+      } /* 픽스드나 렐러티브줘야함 앱솔루트를 주면 탑값인지 못함 , 높이 필요 */
+      .article1 {
+        background-color: salmon;
+      }
+      .article2 {
+        background-color: greenyellow;
+      }
+      .article3 {
+        background-color: blueviolet;
+      }
+      .article4 {
+        background-color: paleturquoise;
+      }
+      .article5 {
+        background-color: yellow;
+      }
+      .article1 h1 {
+        font-size: 200px;
+        text-align: center;
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        transform: translate(0, 0%);
+        color: #fff;
+        transition: 1s;
+        opacity: 0;
+      }
+      .article1.on h1 {
+        opacity: 1;
+        transform: translate(0, -50%);
+      }
+      .left1,
+      .right1 {
+        font-size: 60px;
+        color: #fff;
+        font-weight: bold;
+        position: absolute;
+        transition: all 0.5s;
+      }
+      .left1 {
+        left: -500px;
+        top: 20%;
+        transition-delay: 1s;
+      }
+      .right1 {
+        right: -500px;
+        bottom: 20%;
+      }
+      .left1.on {
+        left: 200px;
+      }
+      .right1.on {
+        right: 200px;
+      }
+    </style>
+    <!-- 
+    <script>
+      /* load - 윈도우가 로드되면 실행해 */
+      /* DOMCntentded~~ - 컨텐츠가 다 실행되면 샐행해 */
+      addEventListener("load", function () {
+        addEventListener("scroll", () => {
+          /* ()=>{} this가 윈도우를 가르킴//여기서 스크롤이벤트는 윈도우가 주체니까 사용가능 */
+          let wsc = parseInt(this.scrollY);
+          
+          //console.log(document.querySelector(".article1").offsetTop);
+        let arts = document.querySelectorAll('.article')
+          if (wsc > arts[0].offsetTop) {
+            arts[0].classList.add("on");
+          }
+          if (wsc > arts[1].offsetTop) {
+            select(".left1").classList.add("on");
+          }
+          if (wsc > arts[1].offsetTop) {
+            select(".right1").classList.add("on");
+          }
+        });
+      });
+    </script>
+     -->
+    <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+    <script>
+      $(function () {
+        $(window).scroll(function () {
+          let arts = $("article");
+          let sct = $(this).scrollTop();
+          let speed = 200;
+
+          if (sct >= arts.eq(0).offset().top - speed) {
+            $(".article1").addClass("on");
+          }
+          if (sct >= arts.eq(1).offset().top - speed) {
+            $(".left1").addClass("on");
+          }
+          if (sct >= arts.eq(1).offset().top - speed) {
+            $(".right1").addClass("on");
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <section>
+      <article class="article1">
+        <h1>Loerm!</h1>
+      </article>
+      <article class="article2">
+        <div class="left left1">Ipsum</div>
+        <div class="right right1">Dolor</div>
+      </article>
+      <article class="article3"></article>
+      <article class="article4"></article>
+      <article class="article5"></article>
+    </section>
+  </body>
+</html>
