@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .cursor-sec {
+        width: 100%;
+        height: 150vh;
+        cursor: none;
+        cursor: default;
+      }
+      #cursor {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        z-index: 999999;
+        background-color: rgba(248, 183, 192, 0.5);
+        border-radius: 50%;
+
+        user-select: none; /* 사용자가 선택하는기능을 막기 */
+        pointer-events: none; /* 마우스 이벤트를 막아야함 */
+      } /* 마크업할때 상단에 적어줘야 다른요소를 안건들일수 있음  */
+      /* #mouse1,
+      #mouse2,
+      #mouse3 {
+        position: absolute;
+        z-index: 999999;
+        user-select: none;
+        pointer-events: none;
+      }
+      #mouse1 {
+        top: 10%;
+        left: 10%;
+      }
+      #mouse2 {
+        top: 30%;
+        left: 30%;
+      }
+      #mouse3 {
+        top: 10%;
+        left: 30%;
+      } */
+      #mouse1,
+      #mouse3 {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        z-index: 999999;
+        top: 50px;
+        left: 30px;
+        transition: all 0.3s;
+      }
+      #mouse3 {
+        animation: rotate 2.5s infinite alternate;
+        animation-play-state: paused;
+      }
+      #mouse3.on {
+        animation-play-state: running;
+      }
+      @keyframes rotate {
+        0% {
+          transform: perspective(200px) rotateY(0deg);
+        }
+        50% {
+          transform: perspective(200px) rotateY(-180deg);
+        }
+        100% {
+          transform: perspective(200px) rotateY(-360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="cursor-sec">
+      <div id="mouse1"><img src="./1.png" alt="키티이미지1" /></div>
+      <div id="mouse2"><img src="./2.png" alt="키티이미지2" /></div>
+      <div id="mouse3"><img src="./3.png" alt="키티이미지3" /></div>
+      <div id="cursor"></div>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo perferendis non provident eos accusamus quibusdam fugiat? Quos vitae ea, corrupti, voluptatibus culpa recusandae alias asperiores velit architecto enim, omnis ex.</p>
+      <input type="text" />
+    </section>
+
+    <!-- <script src="mouse.js"></script> -->
+    <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+    <!-- <script src="mouse_jq.js"></script> -->
+
+    <script>
+      window.addEventListener("mousemove", function (e) {
+        const mouse1 = document.querySelector("#mouse1");
+        const pointer = {
+          x: e.clientX,
+          y: e.clientY,
+        };
+        console.log(pointer);
+
+        mouse1.style.top = pointer.y + "px";
+        mouse1.style.left = pointer.x + "px";
+        mouse1.style.marginTop = -(pointer.y / 2) + "px";
+        mouse1.style.marginLeft = -(pointer.x / 2) + "px";
+      });
+    </script>
+  </body>
+</html>
