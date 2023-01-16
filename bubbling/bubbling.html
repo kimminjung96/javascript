@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        padding: 30px;
+        width: 20%;
+        color: white;
+      }
+      .one {
+        background: red;
+      }
+      .two {
+        background: green;
+      }
+      .three {
+        background: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="one">
+      <span>one</span>
+      <div class="two">
+        <span>two</span>
+        <div class="three"><span>three</span></div>
+      </div>
+    </div>
+    <script>
+      var divs = document.querySelectorAll("div");
+      divs.forEach(function (div) {
+        div.addEventListener("click", logEvent, { capture: true });
+      });
+      //버블링 => 이벤트가 상위 요소로 전파(자식->부모)
+      //캡쳐링 => 이벤트가 하위 요소로 전파(부모->자식)
+      function logEvent(e) {
+        //console.log(e.target); //이벤트 발생한거
+        console.log(e.currentTarget.className); //이벤트 등록한거
+      }
+    </script>
+  </body>
+</html>
