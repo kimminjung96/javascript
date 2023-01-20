@@ -10,7 +10,7 @@ addEventListener("DOMContentLoaded", () => {
     //open(방법.rul,동가비동기여부)
     request.open("GET", url);
     //응답할 데이터 형식 (document => html,xml 일때)
-    request.responseType = "document";
+    request.responseType = "document"; //esponseType = "document"; => HTML의 구조를 그대로 가져옴
 
     //onload request가 실행중일때로드됌 
     request.onload = () => {

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div></div>
+
+    <script>
+        //비동기식으로 작동
+        //setTimeout(function(){
+        //console.log("3초후에 폭발")
+        //},3000)
+        //console.log('조용히해')
+  
+        const url = "https://dummyjson.com/products";
+        const req = new XMLHttpRequest();
+  
+        let div = document.querySelector("div");
+  
+        req.onload = () => {
+          const datas = req.response;
+  
+          for (data of datas.products) {
+            //object Destructuring
+            //배열 디스트럭처링 (키값으로 매핑)
+            //let brand=data.brand;
+            //let category=data.category;
+  
+            let { brand, category } = data;
+            //let brand = data.brand;
+            //let  category= data.category;
+            let img = data.thumbnail;
+            div.innerHTML += `브랜드: ${brand} <br> 카테고리: ${category} <hr>`;
+            console.log(data);
+          }
+        };
+        req.open("GET", url);
+        req.responseType = "json";
+        //function reqListener() {
+        //  console.log(this.responseText);
+        //}
+        //req.addEventListener("load", reqListener);
+        //req.open("GET",url);
+        req.send();
+      </script>
+  
+  </body>
+</html>
