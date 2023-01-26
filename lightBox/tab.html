@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tab</title>
+    <!-- tab : 클릭한 것만 보이고 나머지는 감추기 -->
+  </head>
+  <body>
+    <ul>
+      <li class="b1">btn1</li>
+      <li class="b2">btn2</li>
+      <li class="b3">btn3</li>
+    </ul>
+    <div>
+      <h3 class="h1">para1 para1para1para1para1para1para1para1para1para1para1para1para1para1para1para1para1para1para1para1para1para1para1para1para1para1para1para1para1para1</h3>
+      <h3 class="h2">para2 para2para2para2para2para2para2para2para2para2para2para2para2para2para2para2para2para2para2para2para2para2para2para2para2para2para2para2para2para2</h3>
+      <h3 class="h3">para3 para3para3para3para3para3para3para3para3para3para3para3para3para3para3para3para3para3para3para3para3para3para3para3para3para3para3para3para3para3</h3>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+    <script>
+      $("h3").hide();
+      $(".h1").show();
+
+      $(".b2").click(function () {
+        $(".h1,.h3").hide();
+        $(".h2").show();
+      });
+      $(".b3").click(function () {
+        $(".h2,.h1").hide();
+        $(".h3").show();
+      });
+      $(".b1").click(function () {
+        $(".h3 ,.h2").hide();
+        $(".h1").show();
+      });
+    </script>
+  </body>
+</html>
