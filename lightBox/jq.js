@@ -19,7 +19,7 @@ $(function(){
 })
  */
 
-var btn = $(".gallery a");
+/* var btn = $(".gallery a");
 
 btn.click(function () {
   var imgsrc = $(this).find("img").attr("data-lightbox");
@@ -28,3 +28,4 @@ btn.click(function () {
   
   
 });
+ */
