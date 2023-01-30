@@ -1,0 +1,70 @@
+//nesting 둥지,포함한 -> 중첩: 포함관계를 적용한 문법
+//scss 주석
+/* css 주석 */
+
+$red: #a34444;
+$blue: #00d5ff;
+$pink: #e9bbff;
+$green: #b0eaae;
+$px10: 10px;
+
+html {
+	font-size: 18px;
+}
+
+body {
+	margin: calc($px10 * 5);
+	background-color: #fff4c1;
+}
+
+div {
+	color: #333;
+	padding: 20px;
+}
+
+a {
+	display: inline-block;
+	margin: 10px 0;
+}
+
+#box1 {
+	& {
+		font-size: calc($px10 * 4);
+		background-color: $pink;
+		border-radius: 20px;
+		border: 3px solid $red;
+		-webkit-box-shadow: 0px 3px 11px 0px rgba(0, 0, 0, 0.75);
+		box-shadow: 0px 3px 11px 0px rgba(0, 0, 0, 0.75);
+	}
+
+	& > a {
+		color: #a22;
+		text-decoration: none;
+		&:hover {
+			background-color: #ccc;
+		}
+	}
+	&-title {
+		color: $red;
+		background: linear-gradient($blue, $green);
+	}
+	#box2 {
+		& {
+			font-size: 20px;
+			background-color: #e9e9e9;
+			border-radius: 20px;
+			border: 3px solid #f00;
+			-webkit-box-shadow: 0px 3px 11px 0px rgba(0, 0, 0, 0.75);
+			box-shadow: 0px 3px 11px 0px rgba(0, 0, 0, 0.75);
+		}
+		& > a {
+			color: #ee6633;
+			text-decoration: none;
+		}
+
+		& > a:hover {
+			color: #a22;
+			text-decoration: none;
+		}
+	}
+}
