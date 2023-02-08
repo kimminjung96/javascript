@@ -1,0 +1,7 @@
+XMLhttprequest 원조
+
+fetch =>XMLhttprequest 의 간편화된 버전
+fetch 는 promise를 반화
+
+promise 는 then,catch를 반환
+promise 객체를 새로 생성시에는 callback.html

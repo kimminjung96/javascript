@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+    <script>
+      function timer(time) {
+        setTimeout(() => {
+          document.write("1초후한다.");
+          timer(timer(1000));
+        }, time);
+      }
+      //timer(1000)
+
+      let myprom = new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve("성공")
+        },1000)
+      });
+      myprom.then((message)=>{
+        document.write("1초후 실행 :",message)
+
+      })
+    </script>
+     -->
+    <script>
+      function timer(time) {
+        //timer 함수는 promise객체를 반환
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve(time);
+          }, time);
+        });
+      }
+      /*  timer(1000).then((time)=>{
+            document.write("time"+time)
+            return timer(time+1000)
+        }).then((time)=>{
+            document.write("time"+time)
+            return timer(time+1000)
+        }).then((time)=>{
+            document.write("time"+time)
+            return timer(time+1000)
+        }) */
+
+        /* 비동기 => async,await 비동기 함수지만 동기처럼 실행 (우선순위를 지정) */
+        /*
+            ajax : 비동기 처리를 하는 통신방법
+            비동기작업시 콜백지옥에 빠짐
+            콜백내에서의 순서가 정해진다. 
+         */
+      const run = async () => {
+        document.write("시작");
+        let time = await timer(1000);
+        document.write("time"+time);
+        time = await timer(1000);
+        document.write("time"+time);
+      };
+
+      run();
+    </script>
+  </body>
+</html>
