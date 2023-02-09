@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- https://apis.data.go.kr/6300000/openapi2022/tourspot/gettourspot?serviceKey=7zVski0uGwL3gL5jEpfao0RXQMHwnbAKUt7Lmu9bHtXeIAbHWwCDQkv1Cv9Fw5ND1eEzacjpS4%2B%2FxWBAy70NHg%3D%3D&pageNo=1&numOfRows=10 -->
+
+    <script>
+      var url = "https://apis.data.go.kr/6300000/openapi2022/tourspot/gettourspot"; /*URL*/
+      var queryParams = "?" + encodeURIComponent("serviceKey") + "=" + "7zVski0uGwL3gL5jEpfao0RXQMHwnbAKUt7Lmu9bHtXeIAbHWwCDQkv1Cv9Fw5ND1eEzacjpS4%2B%2FxWBAy70NHg%3D%3D"; /*Service Key*/
+      queryParams += "&" + encodeURIComponent("pageNo") + "=" + encodeURIComponent("1"); /**/
+      queryParams += "&" + encodeURIComponent("numOfRows") + "=" + encodeURIComponent("10"); /**/
+
+      async function getPosts() {
+        const res = await fetch(`${url}${queryParams}`);
+        const data = await res.json(); 
+        console.log(data);
+        return data;
+      }
+
+      async function setPosts() {
+        const posts = await getPosts();
+        const datas = posts.response.body.items;
+        console.log(datas);
+       
+
+        datas.forEach((data) => {
+          const postEl = document.createElement("div");
+          postEl.classList.add("post");
+          postEl.innerHTML = `
+            <div class="area">${data.cnvenFcltGuid}</div>
+            <div>${data.mapLat}</div>
+            <div>${data.mapLot}</div>
+            <div>${data.mngTime}</div>
+            <div>${data.pkgFclt}</div>
+            <div>${data.refadNo}</div>
+            <div>${data.tourUtlzAmt}</div>
+            <div>${data.tourspotAddr}</div>
+            <div>${data.tourspotDtlAddr}</div>
+            <div>${data.tourspotNm}</div>
+            <div>${data.tourspotSumm}</div>
+            <div>${data.tourspotZip}</div>
+            <div>${data.urlAddr}</div>
+\            <hr>
+            `;
+          document.body.appendChild(postEl);
+        });
+      }
+      setPosts();
+    </script>
+  </body>
+</html>
