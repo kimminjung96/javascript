@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>form 요소의 값을 얻어오기</h1>
+    <input type="text" id="myText" value="안녕" />
+    <p class="log"></p>
+    <script>
+      const element = document.querySelector("#myText");
+      //const value = element.value;
+
+      //input 타입:text 일때 변경 감지
+      /* input => 값 변경시 발생 */
+      element.addEventListener("input", handleChange);
+      function handleChange(e) {
+          const value = e.target.value;
+          const log = document.querySelector(".log");
+          log.innerHTML = value;
+          console.log(e);
+      }
+    </script>
+  </body>
+</html>

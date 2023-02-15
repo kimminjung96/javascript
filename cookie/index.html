@@ -78,12 +78,13 @@
       checkCookie("MangoWeb");
       close.addEventListener("click", function () {
         if (checkbox.checked) {
-          //오늘하루 안보기 , 쿠키생성
+          //쿠키생성(재방문자로 인식) 오늘하루 안보기 ,
+          //setCookie(쿠키명, 쿠키값, 파기일(유지기간 ex:3 =>3일간 유지));
           setCookie("MangoWeb", "popup01", 1);
           myPop.style.display = "none";
         } else {
           //팝업 또 띄움
-          myPop.style.display = "block";
+          myPop.style.display = "none";
           delCookie("MangoWeb");
         }
       });
