@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 필터: 배열에서 원하는 값을 추출해서 새 배열로 만듬 -->
+    <script>
+      const nums = [10, 20, 3, 45, 643];
+      const num = nums.filter(function (n) {
+        return n > 20 ? true : false; /* n이 20보다 크면 ture 아니면 false */
+      });
+      //console.log(num);
+
+      const dogs = [
+        { name: "망고", age: 6 },
+        { name: "공주", age: 8 },
+        { name: "딴딴", age: 5 },
+      ];
+      //let adult=배열.filter((el,i)=>{})
+      let adult = dogs.filter((dog, idx) => {
+        //console.log(dog, idx);
+        if (dog.age > 5) {
+          return true;
+        }
+      });
+      for (var i = 0; i < adult.length; i++) {
+        console.log(adult);
+        console.log(adult[i].name,adult[i].age);
+        document.body.innerHTML += `<p>${adult[i].name}는 ${adult[i].age}살이다.</p>`
+        
+      }
+    </script>
+  </body>
+</html>

@@ -62,23 +62,31 @@
         { value: 4831, name: "거제" },
       ];
 
-      //select
       const el = document.querySelector("#pref");
-      //option
-      let optionStr = '<option value="선택하세요">선택하세요</option>';
-      PREF_LIST.forEach((e) => {
-        optionStr += `<option value="${e.value}">${e.name}</option>`;
-        console.log(e);
+      /* 동적요소 생성
+        1. 빈 변수 생성 (초기값)
+        2. 1번에서 생성한 변수에 배열(=>반복문)의 원소를 추가할당(재할당) a+= b
+        3. 상위요소를 선택하여 2번을 추가
+      */
+      let optStr = '<option value="선택하세요">선택하세요</option>';
+      PREF_LIST.forEach((item) => {
+        //console.log(item);
+        optStr += `<option value=${item.value}>${item.name}</option>`;
       });
-      el.innerHTML = optionStr;
-      
-      //변경시 이벤트
+      el.innerHTML = optStr;
+
+      //옵션 변경시 이벤트
       el.addEventListener("change", function (e) {
         const val = e.target.value;
-        const name = e.name;
-        console.log(name);
-        //const messge = e.target.value;
-        document.querySelector(".log").innerHTML = `선택하신 지역은이며 코드는 ${val}입니다.`;
+        //console.log(PREF_LIST);
+        let filtered = PREF_LIST.filter((el, i) => {
+          console.log(el, i);
+          if (el.value == val) {
+            return true;
+          }
+        });
+        console.log(filtered);
+        document.querySelector(".log").innerHTML = `선택하신 지역은${filtered[0].name}이며 코드는 ${val}입니다.`;
       });
     </script>
   </body>
