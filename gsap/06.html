@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>버튼조작</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        overflow: hidden;
+      }
+
+      #title {
+        width: 700px;
+        margin: 100px auto 0;
+      }
+
+      .container {
+        padding: 20px;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+      }
+
+      p {
+        margin-bottom: 15px;
+      }
+
+      a {
+        display: block;
+        width: 100px;
+        padding: 10px;
+        background-color: blueviolet;
+        text-decoration: none;
+        color: white;
+        text-align: center;
+        border-radius: 10px;
+      }
+
+      #thumbnail {
+        width: 700px;
+        height: 300px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="title">
+      <div class="container">
+        <h1 class="animation1">JavaScript GSAP Library Animation</h1>
+        <p class="animation1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, dolore.</p>
+        <a class="animation1" id="calltoaction" href="#">Button</a>
+      </div>
+    </section>
+    <section id="thumbnail">
+      <img src="http://placekitten.com/200/300" />
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+    <script>
+      let timeLine = gsap.timeline({ defaults: { duration: 1 } });
+      timeLine.from("h1", { y: -50, opacity: 0 })
+              .from("p", { y: -50, opacity: 0 }, "-=0.5")
+              .from("a", { y: -50, opacity: 0 }, "+=1")
+              .from("img", { y: 200, opacity: 0 }, "-=0.5");//duration 을 기준으로해서 계산됌
+
+              document.getElementById('calltoaction').addEventListener('click',()=>{
+                //reversed() 역재생 상태를 확인해서 true,false반환
+                //reverse() 역재생
+                timeLine.reversed()?timeLine.play():timeLine.reverse();
+              })
+    </script>
+  </body>
+</html>
