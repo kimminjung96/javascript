@@ -7,13 +7,11 @@
     <title>Document</title>
   </head>
   <body>
-    <script type="module">
-      import { say } from "./say.js";
-      document.body.innerHTML = say("망고");
-    </script>
-    <script type="module">
-      import app from "./say.js";
-      app("망고");
+    <script  type="module">
+      import { funcA, funcB, varC } from "./main.js";
+      //module의 경로는 ./ 나부터 적어줘야함
+      funcA();
+      funcB(varC);
     </script>
   </body>
 </html>
