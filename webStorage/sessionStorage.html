@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sessionStorage</title>
+    <!-- 
+    sessionStorage는 웹 브라우저의 세션 스토리지에 데이터를 저장하는 데 사용됩니다. sessionStorage에 저장된 데이터는 브라우저 세션이 종료되면 삭제됩니다. 브라우저 세션이란, 사용자가 웹 사이트를 방문하는 동안에만 유지되는 일시적인 저장소입니다
+     -->
+  </head>
+  <body>
+    <script>
+      // 데이터 저장
+      sessionStorage.setItem("강아지", "공주");
+
+      // 데이터 불러오기
+      const value = sessionStorage.getItem("강아지");
+      alert(value);
+
+      sessionStorage.removeItem("강아지"); //특정스토리지 삭제
+      sessionStorage.clear(); //전체스토리지 삭제
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>localStorage</title>
+    <!-- 쿠키는 예전부터 스테이지는 그 후에 나옴 -->
+    <!-- 
+    사용자가 방문한 웹 사이트의 로컬 스토리지에 데이터를 저장하는 데 사용됩니다. localStorage에 저장된 데이터는 세션이 종료되어도 남아 있으므로, 사용자가 브라우저를 다시 시작해도 데이터가 유지됩니다.
+     -->
+  </head>
+  <body>
+    <script>
+      // 데이터 저장
+      // localStorage.setItem('key','value');
+      localStorage.setItem("강아지", "공주");
+
+      /* 데이터를 저장하면 지워도 계속 남아있음!! */
+
+      // 데이터 불러오기
+      const value = localStorage.getItem("강아지");
+      alert(value);
+
+      localStorage.removeItem("강아지"); //특정스토리지 삭제
+      localStorage.clear(); //전체스토리지 삭제
+    </script>
+  </body>
+</html>
